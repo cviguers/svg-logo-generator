@@ -1,7 +1,8 @@
-// include packages needed for this application
+// include packages and files needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateLogo = require("./lib/shapes")
+const { Triangle, Circle, Square } = require("./lib/shapes");
+
 
 // array of questions for user input
 const questions = [
