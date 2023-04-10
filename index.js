@@ -1,7 +1,8 @@
 // include packages and files needed for this application
 const fs = require("fs");
+const path = require("path");
 const inquirer = require("inquirer");
-const { Triangle, Circle, Square, Logo } = require("./lib/shapes");
+const { Shape, Triangle, Circle, Square } = require("./lib/shapes");
 
 
 // array of questions for user input
@@ -40,14 +41,14 @@ const questions = [
     },
 ];
 
-const init = function () {
+const generateLogo = function () {
     inquirer
         .prompt(questions)
         .then((data) => {
-            let { text, textColor, shape, shapeColor } = data;
-            let shapeChoice = "";
+            const { text, textColor, shape, shapeColor } = data;
+            let shapeChoice
             switch (shape) {
-                case 'Cricle':
+                case 'Circle':
                     shapeChoice = new Circle();
                     break;
                 case 'Square':
@@ -57,11 +58,13 @@ const init = function () {
                     shapeChoice = new Triangle();
                     break;
             }
-            shapeChoice.setText(text).setShapeColor(shapeColor).setTextColor(textColor);
-            fs.writeFile('logo.svg', shapeChoice.render(), (err) =>
-            err ? console.log(err) : console.log("Generated logo.svg"))
+            shapeChoice.setText(text);
+            shapeChoice.setShapeColor(shapeColor);
+            shapeChoice.setTextColor(textColor);
+            fs.writeFile('./examples/logo.svg', shapeChoice.render(), (err) =>
+                err ? console.log(err) : console.log("Generated logo.svg"))
         })
 }
 
 // call initialization of program
-init();
+generateLogo();
