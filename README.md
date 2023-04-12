@@ -48,7 +48,7 @@ Clone the repository from my github, download `node`, `run npm i` to install dep
 
 ## Usage
 
-To start the application, run `node index.js` in the root folder of the project. Look to the "product" folder for the new `.svg` file.
+To start the application, run `node index.js` in the root folder of the project. Look to the "product" folder for the new `.svg` file. Usage Walkthrough Video: https://drive.google.com/file/d/1prDKoOGN3rznNKunYcsMOSr-MJOGuXj1/view
 
 <img src="./assets/images/node.png"/>
 
