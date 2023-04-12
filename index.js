@@ -2,7 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 const inquirer = require("inquirer");
-const { Shape, Triangle, Circle, Square } = require("./lib/shapes");
+const { Triangle, Circle, Square } = require("./lib/shapes");
 
 
 // array of questions for user input
@@ -46,7 +46,7 @@ const generateLogo = function () {
         .prompt(questions)
         .then((data) => {
             const { text, textColor, shape, shapeColor } = data;
-            let shapeChoice
+            // let shapeChoice = ""
             switch (shape) {
                 case 'Circle':
                     shapeChoice = new Circle();
